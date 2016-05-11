@@ -13,20 +13,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:variable name="author">
   <p>
-    <b>Author: </b><xsl:value-of select="author/name"/> <xsl:value-of select="author/surname"/>    
+    <b>Author: </b><xsl:value-of select="//author/name"/><xsl:text>&#xA0;</xsl:text><xsl:value-of select="//author/surname"/>    
   </p>
 </xsl:variable>
 
-<xsl:variable name="organisation">
-  <p>
-    <b>Organisation: </b>
-    <xsl:value-of select="title"/>,
-    <br/>
-    <xsl:value-of select="subtitle"/>   
-    <xsl:value-of select="image"/>
-  </p>
-  
-</xsl:variable>
+
 
 <xsl:template match="/"> 
    <xsl:result-document method="html" href="presentation.html">
@@ -72,7 +63,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <xsl:apply-templates select="title"/> 
       <div>
         <xsl:copy-of select="$author"/> 
-        <xsl:copy-of select="$organisation"/>
+        <xsl:apply-templates select="organisation"/>
       </div>
     </div>
     <div id="footer">
@@ -90,10 +81,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <body>
         <div id="wrapper">
           <div id="header">
-            <xsl:apply-templates select="$author"/>  
+            <xsl:apply-templates select="title"/>  
           </div>
           <div id="content">
-            <xsl:apply-templates select="title"/>  
+            
             <xsl:apply-templates select="content"/>  
           </div>
           <div id ="footer">              
@@ -133,5 +124,17 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </xsl:attribute>
   </img>
 </xsl:template>
+
+<xsl:template match="organisation">
+  <p>
+    <b>Organisation: </b>
+    <xsl:value-of select="title"/>,
+    <br/>
+    <xsl:value-of select="subtitle"/>   
+  </p>
+  <xsl:apply-templates select="image"/> 
+</xsl:template>
 </xsl:stylesheet>
+
+
 

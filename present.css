@@ -1,6 +1,6 @@
 
 body {
-	background-color: #87CEFA;
+	background-color: black;
    font: 15px arial, sans-serif;
    margin:0;
    padding:0;
@@ -13,11 +13,11 @@ body {
     margin: 60px auto;
    	padding-bottom:100px; 
    	padding: 20px;  
-    background-color: #F0F8FF;
+    background-color: white;
 }
 
 #header {
-   background:#ff0;
+   border-bottom: 1px solid black;
    padding:10px;
 }
 
@@ -26,13 +26,22 @@ body {
    bottom: 80px;
    width:1000px;
    height:40px;   /* Height of the footer */
-   background:#191970;
+   background:#8B0000;
    color: white;  
    display: inline-block;
 }
 
+a {
+	color: #B22222;
+	text-decoration: none;
+
+}
+a:hover{
+	color: black;
+}
+
 #footer a{
-	    color: white;
+	    color: 	white;
 	    padding: 10px;   
 	    
 }
