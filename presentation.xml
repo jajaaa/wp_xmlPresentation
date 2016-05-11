@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE present SYSTEM "present.dtd">-->
+<presentation>
+
+  <info>
+    <title>
+      Majkina prezentacia
+    </title>
+    <author>
+      <name>Majka</name>
+      <surname>Dragunova</surname>
+    </author>
+    <organisation>
+      <title>Slovenska technicka univerzita</title>
+      <subtitle>Fakulta informatiky a informacnych technologii</subtitle>
+      <image>fiit_logo.png</image>
+    </organisation>
+  </info>
+  
+  <slide>
+    <title>Uvod</title>
+
+    <content>
+      Toto je moj prvy slajd, su v nom same super informacie.
+    </content>
+  </slide>
+
+  <slide>
+    <title>Druhy slajd</title>
+
+    <content>
+      V mojom druhom slajde, su este viac super informacie ako v prvom. WOW, SO MUCH XSL
+    </content>
+  </slide>  
+  
+
+  <slide>
+    <title>
+      Treti slajd mimo sekcie
+    </title>
+    <content>
+      Tototj je moj super treti slajd ale je mimo sekcie
+    </content>
+
+  </slide>
+
+</presentation>
