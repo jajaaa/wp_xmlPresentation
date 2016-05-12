@@ -1,0 +1,24 @@
+
+<!ELEMENT presentation (info, slide*)> <!-- korenovy element prezentacie, obsahuje informacie o prezentacii a nejake slidy -->
+<!ELEMENT info (title, author, date?, organisation?)> <!-- Informacie o prezentacii -->
+
+<!ELEMENT title (#PCDATA)> <!-- Nazov prezentacie -->
+<!ELEMENT date (#PCDATA)> <!-- Datum vytvorenia -->
+<!ELEMENT author (name, surname, degree?)> <!-- Autor prezentacie -->
+<!ELEMENT name (#PCDATA)> <!-- Krstne meno autora -->
+<!ELEMENT surname (#PCDATA)> <!-- Priezvisko autora -->
+<!ELEMENT degree (#PCDATA)> <!-- Titul autora -->
+
+<!ELEMENT organisation (orgtitle, orgsubtitle?)> <!-- Element popisujuci organizaciu -->
+<!ELEMENT orgtitle (#PCDATA)> <!-- Nazov organizacie -->
+<!ELEMENT orgsubtitle (#PCDATA)> <!-- Presnejsi nazov organizacie (nazov pracoviska ai.) -->
+
+<!ELEMENT slide (heading, content?)> <!-- Element popisujuci slide -->
+<!ELEMENT heading (#PCDATA)> <!-- Hlavicka (nadpis) slidu -->
+<!ELEMENT content (para|list|image)*> <!-- Obsah slajdu, moze byt zmiesany z roznych elementov -->
+<!ELEMENT para (#PCDATA|ref)*> <!-- Odsek na slajde, moze obsahovat referencie -->
+<!ELEMENT ref ANY> <!-- Referencia -->
+<!ELEMENT list (item+)> <!-- Zoznam poloziek -->
+<!ELEMENT item (#PCDATA)> <!-- Jedna polozka v zozname -->
+<!ATTLIST list style (bullet|number) "bullet"> <!-- Atribut urcujuci typ zoznamu - cislovany, odrazkovy -->
+<!ELEMENT image (#PCDATA)> <!-- Obrazok -->

@@ -2,22 +2,24 @@
 <xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<!-- <xsl:variable name="logo">
-  
-</xsl:variable>
-<xsl:copy-of select="$logo" /> -->
-
 <xsl:variable name="head">
-<head><link rel="stylesheet" type="text/css" href="present.css"></link></head>  
+  <head><link rel="stylesheet" type="text/css" href="present.css"></link></head>  
 </xsl:variable>
 
 <xsl:variable name="author">
   <p>
-    <b>Author: </b><xsl:value-of select="//author/name"/><xsl:text>&#xA0;</xsl:text><xsl:value-of select="//author/surname"/>    
+    <b>Author: </b><xsl:value-of select="//author/degree"/><xsl:text>&#xA0;</xsl:text>
+    <xsl:value-of select="//author/name"/><xsl:text>&#xA0;</xsl:text>
+    <xsl:value-of select="//author/surname"/>    
   </p>
 </xsl:variable>
 
-
+<xsl:template name="headings">
+    <xsl:param name="hElement">h1</xsl:param>
+    <xsl:element name="{$hElement}">
+      <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
 
 <xsl:template match="/"> 
    <xsl:result-document method="html" href="presentation.html">
@@ -40,12 +42,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
               <xsl:for-each select="presentation/slide">  
                 <tr> 
                   <td><xsl:value-of select="position()"/></td>
-                  <td><a href="slide_{position()}.html"><xsl:value-of select="title"/>  </a></td>
+                  <td><a href="slide_{position()}.html"><xsl:value-of select="heading"/>  </a></td>
                 </tr>
                 </xsl:for-each>
                 </table>
                 <div id="footer" >
-                  <a href="slide_1.html">Next</a>
+                  <a href="slide_1.html" class="right">Next</a>
+                  <a href="presentation.html" class="right">Prew</a>
                 </div>     
               </div>
           </body>
@@ -64,11 +67,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <div>
         <xsl:copy-of select="$author"/> 
         <xsl:apply-templates select="organisation"/>
+        <xsl:apply-templates select="date"/>
       </div>
     </div>
     <div id="footer">
       <footer>
-      <a href="contents.html">Next</a>
+      <a href="contents.html" class="right">Next</a>
     </footer>
     </div>
   </div>
@@ -80,23 +84,24 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:copy-of select="$head" />
       <body>
         <div id="wrapper">
-          <div id="header">
-            <xsl:apply-templates select="title"/>  
-          </div>
-          <div id="content">
-            
+          
+            <xsl:apply-templates select="heading"/>        
             <xsl:apply-templates select="content"/>  
-          </div>
+         
           <div id ="footer">              
             <footer>
               <p>Page: <xsl:value-of select="position()"/></p>
-              <a href="contents.html" class="right">Contents</a>
+              
               <xsl:if test="position() &lt; last()"> <!-- Vloz tlacidlo next, ak nie je posledny-->
                 <a href="slide_{position()+1}.html" class="right">Next</a>
               </xsl:if>
               <xsl:if test="position() &gt; 1"> <!-- Vloz tlacidlo prew, ak nie je prvy-->
                 <a href="slide_{position()-1}.html" class="right">Prew</a>
               </xsl:if>
+               <xsl:if test="position() = 1">
+                <a href="contents.html" class="right">Prew</a>
+               </xsl:if>
+               <a href="contents.html" class="right">Contents</a>
             </footer>
           </div>  
         </div> 
@@ -105,16 +110,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 </xsl:result-document>
 </xsl:template>
 
-<xsl:template match="title">
-  <h1>
-    <xsl:value-of select="."/>    
-  </h1>
-</xsl:template>
-
-<xsl:template match="content">
-  <p>
-    CONTENT: <xsl:value-of select="."/>    
-  </p>
+<xsl:template match="heading">
+  <div id="header">
+     <xsl:call-template name="headings">
+      <xsl:with-param name="hElement">h2</xsl:with-param>
+    </xsl:call-template>
+</div>
 </xsl:template>
 
 <xsl:template match="image">
@@ -128,12 +129,68 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="organisation">
   <p>
     <b>Organisation: </b>
-    <xsl:value-of select="title"/>,
+    <xsl:value-of select="orgtitle"/>,
     <br/>
-    <xsl:value-of select="subtitle"/>   
+    <xsl:value-of select="orgsubtitle"/>   
   </p>
-  <xsl:apply-templates select="image"/> 
 </xsl:template>
+
+<xsl:template match="title">
+   <xsl:call-template name="headings">
+      <xsl:with-param name="hElement">h1</xsl:with-param>
+    </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="list">
+    <xsl:choose>
+    <xsl:when test="@style='number'">
+      <ol>
+        <xsl:for-each select=".">
+          <xsl:apply-templates select="item"/>
+        </xsl:for-each>
+      </ol>
+    </xsl:when>
+    <xsl:otherwise>
+      <ul>
+        <xsl:for-each select=".">
+          <xsl:apply-templates select="item"/>
+        </xsl:for-each>
+      </ul>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="item">
+  <li><xsl:value-of select="."/></li>
+</xsl:template>
+
+<xsl:template match="content">
+  <div id="content">
+    <xsl:apply-templates/>
+  </div>
+</xsl:template>
+
+<xsl:template match="para">  
+  <p>
+    <xsl:apply-templates/>
+  </p>
+</xsl:template>
+
+<xsl:template match="date">  
+  <p>
+    Date: <xsl:value-of select="."/>
+  </p>
+</xsl:template>
+
+<xsl:template match="ref">
+  <a>
+    <xsl:attribute name="href">
+        <xsl:value-of select="."/>
+    </xsl:attribute>
+    <xsl:value-of select="."/>
+  </a>
+</xsl:template>
+
 </xsl:stylesheet>
 
 

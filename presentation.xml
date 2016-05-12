@@ -1,47 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<!DOCTYPE present SYSTEM "present.dtd">-->
+<!DOCTYPE presentation SYSTEM "presentation.dtd"> 
+
+<!-- <!DOCTYPE presentation [
+    <!ELEMENT presentation (info, slide*)> 
+  <!ELEMENT info (title, author, date?, organisation?)>
+
+  <!ELEMENT date (#PCDATA)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT author (name, surname, degree?)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT surname (#PCDATA)>
+  <!ELEMENT degree (#PCDATA)>
+
+  <!ELEMENT organisation (orgtitle, orgsubtitle?)>
+  <!ELEMENT orgtitle (#PCDATA)>
+  <!ELEMENT orgsubtitle (#PCDATA)>
+
+  <!ELEMENT slide (heading, content?)>
+  <!ELEMENT heading (#PCDATA)>
+  <!ELEMENT content (para|list|image)*>
+  <!ELEMENT para (#PCDATA|ref)*>
+  <!ELEMENT ref ANY>
+  <!ELEMENT list (item+)>
+  <!ELEMENT item (#PCDATA)>
+  <!ATTLIST list style (bullet|number) "bullet">
+  <!ELEMENT image (#PCDATA)>
+]> 
+ -->
 <presentation>
 
   <info>
     <title>
-      Majkina prezentacia
+      Vyhodnocovanie používateľského zážitku analýzou pohľadu a emócií
     </title>
     <author>
       <name>Majka</name>
-      <surname>Dragunova</surname>
+      <surname>Dragúňova</surname>
     </author>
+    <date>12.5.2016</date>
     <organisation>
-      <title>Slovenska technicka univerzita</title>
-      <subtitle>Fakulta informatiky a informacnych technologii</subtitle>
-      <image>fiit_logo.png</image>
+      <orgtitle>Slovenská technická univerzita</orgtitle>
+      <orgsubtitle>Fakulta informatiky a informačných technológií</orgsubtitle>
     </organisation>
   </info>
   
   <slide>
-    <title>Uvod</title>
-
+    <heading>Návrh scenára experimentu</heading>
     <content>
-      Toto je moj prvy slajd, su v nom same super informacie.
+      <para>Pripravovaný experiment bude pozostávať z dvoch častí:</para>
+      <list style="number">
+        <item>Testy na vizuálne hľadanie</item>
+        <item>Hľadanie elementov na webových stránkach</item>
+      </list>
+      <para>Účastníci experimentu budú automaticky rozdelení na dve skupiny:</para>
+      <list style="bullet">
+      <item>Verzia A: Testy na vizuálne hľadanie -> Webové stránky</item>
+      <item>Verzia B: Webové stránky -> Testy na vizuálne hľadanie</item>
+    </list>
     </content>
   </slide>
 
   <slide>
-    <title>Druhy slajd</title>
-
+    <heading>Ukážka stimulov - štandardný test</heading>
     <content>
-      V mojom druhom slajde, su este viac super informacie ako v prvom. WOW, SO MUCH XSL
+      <para>Stimuly obsiahnuté v štandardnom teste na vizuálne hľadanie:</para>
+      <image>obr/ukazka_standard.png</image>
+      <para>Návrh testu podľa existujúcich riešení, napr. <ref>http://gocognitive.net</ref>.</para>
+      <list style="bullet">
+        <item>Počty elementov:6, 12, 18, 32</item>
+        <item>Ovládanie: tlačidlami klávesnice</item>
+        <item>Špecifiká:  Stimul je zobrazený až po stlačení tlačidla.</item>
+      </list>
     </content>
   </slide>  
   
+  <slide>
+    <heading>Ukážka stimulov - test s ikonami</heading>
+    <content>
+      <para>Väčšia zobrazovacia plocha = viac pozorovateľných fixácií</para>
+      <list style="bullet">
+        <item>Počty elementov: 32, 64</item>
+        <item>Ovládanie: myšou</item>
+        <item>Špecifiká: zabrazenie maskovaného stimulu, na kontrolu presnosti odpovede</item>
+      </list>
+      <image>obr/ukazka_ico.png</image>
+    </content>
+  </slide>
 
   <slide>
-    <title>
-      Treti slajd mimo sekcie
-    </title>
+    <heading>Webové stránky</heading>
     <content>
-      Tototj je moj super treti slajd ale je mimo sekcie
+      <list style="bullet">
+        <item>15 rôznych webovových stránok</item>
+        <item>Stránky s obsahom, ktorý by sa (pravdepodobne) nemal týkať participantov (študentov)</item>
+        <item>Použitie screenshotov - okamžité zobrazenie rovnaké pre všetkých</item>
+      </list>
+      <para>Priebeh tesovania bude nasledovný:</para>
+      <list style="number">
+        <item>Zobrazenie cieľového elementu</item>
+        <item>Zobrazenie webovej stránky, na ktorej je potrebné cieľový elelemnt nájsť</item>
+        <item>Odpoveď na otázku, či už niekedy participant danú stránku navštívil.</item>
+      </list>
     </content>
+  </slide>
 
+  <slide>
+    <heading>Celkový priebeh experimentu</heading>
+    <content>
+      <para>Celkovo bude experiment pozostávať z nasledujúcich častí:</para>
+      <image>obr/exp.png</image>
+    </content>
+  </slide>
+
+  <slide>
+    <heading>Zhrnutie a diskusia</heading>
+    <content>
+      <para>Nech sa páči, pýtajte sa...</para>
+    </content>
+  </slide>
+
+  <slide>
+    <heading>Ďakujem za pozornosť</heading>
   </slide>
 
 </presentation>
