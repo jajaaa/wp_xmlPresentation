@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE presentation SYSTEM "presentation.dtd"> 
 
-<!-- <!DOCTYPE presentation [
-    <!ELEMENT presentation (info, slide*)> 
-  <!ELEMENT info (title, author, date?, organisation?)>
 
-  <!ELEMENT date (#PCDATA)>
-  <!ELEMENT title (#PCDATA)>
-  <!ELEMENT author (name, surname, degree?)>
-  <!ELEMENT name (#PCDATA)>
-  <!ELEMENT surname (#PCDATA)>
-  <!ELEMENT degree (#PCDATA)>
-
-  <!ELEMENT organisation (orgtitle, orgsubtitle?)>
-  <!ELEMENT orgtitle (#PCDATA)>
-  <!ELEMENT orgsubtitle (#PCDATA)>
-
-  <!ELEMENT slide (heading, content?)>
-  <!ELEMENT heading (#PCDATA)>
-  <!ELEMENT content (para|list|image)*>
-  <!ELEMENT para (#PCDATA|ref)*>
-  <!ELEMENT ref ANY>
-  <!ELEMENT list (item+)>
-  <!ELEMENT item (#PCDATA)>
-  <!ATTLIST list style (bullet|number) "bullet">
-  <!ELEMENT image (#PCDATA)>
-]> 
- -->
 <presentation>
-
   <info>
     <title>
       Vyhodnocovanie používateľského zážitku analýzou pohľadu a emócií
@@ -47,7 +21,7 @@
   <slide>
     <heading>Návrh scenára experimentu</heading>
     <content>
-      <para>Pripravovaný experiment bude pozostávať z dvoch častí:</para>
+      <para color="green">Pripravovaný experiment bude pozostávať z dvoch častí:</para>
       <list style="number">
         <item>Testy na vizuálne hľadanie</item>
         <item>Hľadanie elementov na webových stránkach</item>
@@ -64,7 +38,7 @@
     <heading>Ukážka stimulov - štandardný test</heading>
     <content>
       <para>Stimuly obsiahnuté v štandardnom teste na vizuálne hľadanie:</para>
-      <image>obr/ukazka_standard.png</image>
+      <image align="right">obr/ukazka_standard.png</image>
       <para>Návrh testu podľa existujúcich riešení, napr. <ref>http://gocognitive.net</ref>.</para>
       <list style="bullet">
         <item>Počty elementov:6, 12, 18, 32</item>
@@ -77,7 +51,7 @@
   <slide>
     <heading>Ukážka stimulov - test s ikonami</heading>
     <content>
-      <para>Väčšia zobrazovacia plocha = viac pozorovateľných fixácií</para>
+      <para color="red">Väčšia zobrazovacia plocha = viac pozorovateľných fixácií</para>
       <list style="bullet">
         <item>Počty elementov: 32, 64</item>
         <item>Ovládanie: myšou</item>
@@ -122,5 +96,4 @@
   <slide>
     <heading>Ďakujem za pozornosť</heading>
   </slide>
-
 </presentation>

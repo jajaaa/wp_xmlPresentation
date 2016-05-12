@@ -1,4 +1,17 @@
-C:\Users\Maria\Disk_Google\SKOLA\6.semester\WP\zadanie3\saxon>java  -jar saxon9.jar  -s:zadanie3\presentation.xml -xsl:zadanie3\presentation.xsl -o:zadanie3\presentation.html
+Archiv obsahuje:
+- obr - priecinok s pouzitymi obrazkami
+- prelozene html subory (presentation.html, contents.html, slide_X.html, kde X je cislo slidu)
+- presentation.xml 
+- presentation.xsl
+- presentation.dtd
+- present.css
 
 
-java  -jar saxon9.jar  -s:presentation.xml -xsl:presentation.xsl -o:presentation.html
+Preklad:
+- do priecinka, kde je saxon dat priecinok xdragunova s mojim riesenim 
+- spustit saxon s nasledujucimi parametrami:
+
+java  -jar saxon9.jar  -s:xdragunova\presentation.xml -xsl:xdragunova\presentation.xsl -o:xdragunova\presentation.html
+
+
+

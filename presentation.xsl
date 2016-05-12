@@ -123,6 +123,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:attribute name="src">
         <xsl:value-of select="."/>
     </xsl:attribute>
+    <xsl:attribute name="align">
+        <xsl:value-of select="@align"/>
+    </xsl:attribute>
   </img>
 </xsl:template>
 
@@ -172,6 +175,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template match="para">  
   <p>
+    <xsl:attribute name="style">
+        color:<xsl:value-of select="@color"/>
+    </xsl:attribute>
     <xsl:apply-templates/>
   </p>
 </xsl:template>

@@ -1,4 +1,3 @@
-
 <!ELEMENT presentation (info, slide*)> <!-- korenovy element prezentacie, obsahuje informacie o prezentacii a nejake slidy -->
 <!ELEMENT info (title, author, date?, organisation?)> <!-- Informacie o prezentacii -->
 
@@ -17,8 +16,10 @@
 <!ELEMENT heading (#PCDATA)> <!-- Hlavicka (nadpis) slidu -->
 <!ELEMENT content (para|list|image)*> <!-- Obsah slajdu, moze byt zmiesany z roznych elementov -->
 <!ELEMENT para (#PCDATA|ref)*> <!-- Odsek na slajde, moze obsahovat referencie -->
+<!ATTLIST para color CDATA #IMPLIED> <!-- Farba pisma odseku -->
 <!ELEMENT ref ANY> <!-- Referencia -->
 <!ELEMENT list (item+)> <!-- Zoznam poloziek -->
 <!ELEMENT item (#PCDATA)> <!-- Jedna polozka v zozname -->
 <!ATTLIST list style (bullet|number) "bullet"> <!-- Atribut urcujuci typ zoznamu - cislovany, odrazkovy -->
 <!ELEMENT image (#PCDATA)> <!-- Obrazok -->
+<!ATTLIST image align (left|right|middle|top|bottom) #IMPLIED> <!-- Poloha obrazka -->
